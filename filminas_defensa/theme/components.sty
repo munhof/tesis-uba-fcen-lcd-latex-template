@@ -1,0 +1,27 @@
+\ProvidesPackage{components}
+
+\setbeamercolor{item}{fg=primary}
+\setbeamercolor{subitem}{fg=accent3}
+
+\newcommand{\highlight}[1]{\textcolor{accent1}{#1}}
+
+\newcommand{\agendaFrame}[2]{
+  \bgagenda
+  \begin{frame}
+  \frametitle{#1}
+  #2
+  \end{frame}
+}
+
+\newcommand{\normalFrame}[2]{
+  \bgnormal
+  \begin{frame}
+  \frametitle{#1}
+  #2
+  \end{frame}
+}
+
+\setbeamercolor{structure}{fg=primary}
+\setbeamercolor{alerted text}{fg=accent1}
+
+\endinput

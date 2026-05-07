@@ -1,0 +1,42 @@
+\PassOptionsToPackage{demo}{graphicx}
+\documentclass{beamer}
+
+
+\mode<presentation>{
+  \usetheme{default}
+}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% paquetes básicos (contenido)
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\input{../config/metadata}
+
+% TU TEMA
+\makeatletter
+\def\input@path{{./theme/}}
+\makeatother
+\usepackage{mytheme}
+
+% ===== METADATA =====
+\title[\tesisTituloCorto]{\tesisTitulo}
+\author{\tesisAutor}
+\institute{\tesisInstitucionCorta}
+\date{\tesisFecha}
+
+\begin{document}
+
+% slide de título
+\frame{\titlepage}
+
+% contenido
+\input{./sections/01_indice}
+\input{./sections/02_imagen}
+\input{./sections/03_items}
+\input{./sections/04_multiimage}
+
+\end{document}

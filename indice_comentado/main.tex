@@ -1,0 +1,67 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{top=3cm, bottom=3cm, left=3cm, right=3cm}
+
+\usepackage{mathpazo} % Palatino font for a premium look
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+% Colors
+\definecolor{primary}{HTML}{2c3e50}
+\definecolor{accent}{HTML}{3498db}
+
+\input{metadata}
+
+% Title Styling
+\titleformat{\section}
+  {\color{primary}\normalfont\Large\bfseries}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\color{primary}\normalfont\large\bfseries}
+  {\thesubsection}{1em}{}
+
+% Custom Commands
+\newcommand{\comentario}[1]{
+  \begin{itemize}[label={}, leftmargin=1cm, rightmargin=1cm]
+    \item \small\itshape\color{gray!40!black} #1
+  \end{itemize}
+  \vspace{1em}
+}
+
+\begin{document}
+
+% --- CARATULA ---
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    {\large \textbf{\institucion}} \\
+    \vspace{2cm}
+    \includegraphics[width=0.3\textwidth]{../manuscrito/assets/logofcen.pdf} \\ % Usamos el logo del manuscrito
+    \vspace{2cm}
+    {\LARGE \bfseries \titulo \par}
+    \vspace{1cm}
+    {\Large \subtitulo \par}
+    \vspace{2cm}
+    {\large \textbf{\autor} \par}
+    \vspace{1cm}
+    {\small Director: \director \\ Co-Director: \codirector \par}
+    \vfill
+    {\large \fecha}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% --- CONTENIDO ---
+\input{contenido}
+
+\end{document}

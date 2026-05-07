@@ -1,0 +1,101 @@
+% ==============================================================================
+% 1. DOCUMENT CLASS & BEAMER CONFIG
+% ==============================================================================
+\documentclass[xcolor=table]{beamer}
+
+\mode<presentation>{
+  \usetheme{default}
+}
+
+% ESTO ES LO CLAVE:
+% \setbeameroption{show notes} 
+% NO uses 'show notes' ni 'second screen' si vas a usar pdfpc.
+% El paquete pdfpc se encarga de crear un archivo .pdfpc con las notas
+% para que solo se vean en la pantalla del orador.
+% ==============================================================================
+% 2. LANGUAGE & ENCODING
+% ==============================================================================
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+
+% ==============================================================================
+% 3. GRAPHICS & VISUALS
+% ==============================================================================
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows.meta, positioning}
+\usepackage{bookmark}
+% ==============================================================================
+% 4. TABLES & UTILITIES
+% ==============================================================================
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[duration=8]{pdfpc}
+% ==============================================================================
+% 5. BIBLIOGRAPHY (BibLaTeX)
+% ==============================================================================
+\usepackage[
+    backend=biber, 
+    style=numeric, 
+    sorting=none, 
+    maxcitenames=2, 
+    mincitenames=1 
+]{biblatex}
+\addbibresource{bib/reference.bib}
+\input{../config/metadata}
+
+% ==============================================================================
+% 6. THEME CUSTOMIZATION
+% ==============================================================================
+\makeatletter
+\def\input@path{{./theme/}}
+\makeatother
+\usepackage{mytheme}
+
+% ==============================================================================
+% 7. METADATA
+% ==============================================================================
+\title[\tesisTituloCorto]{\tesisTitulo}
+
+\author[\tesisAutorCorto]{
+  \tesisAutor \\
+  \texttt{\scriptsize \tesisEmail --- L.U. \tesisLU}
+}
+
+\institute[UBA]{
+  \begin{tabular}{p{0.4\textwidth} p{0.4\textwidth}}
+    \centering \textbf{Directora:} & \centering \textbf{Co-Director:} \tabularnewline
+    \centering \tesisDirector & \centering \tesisCodirector \tabularnewline
+    \centering {\scriptsize \texttt{\tesisDirectorEmail}} & \centering {\scriptsize \texttt{\tesisCodirectorEmail}}
+  \end{tabular}
+  \vfill
+  \tesisInstitucionCorta
+}
+
+\titlegraphic{\includegraphics[width=2cm]{assets/logofcen.pdf}}
+\date{\tesisFecha}
+
+\begin{document}
+
+% slide de título
+\frame{\titlepage}
+
+% contenido
+\input{./sections/base/01_indice}
+\input{./sections/base/02_imagen}
+\input{./sections/base/03_items}
+\input{./sections/base/04_multiimage}
+
+
+% <<<<
+% \begin{frame}[allowframebreaks]{Bibliografía}
+%   \printbibliography
+% \end{frame}
+% >>>>
+
+\end{document}

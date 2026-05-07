@@ -1,0 +1,58 @@
+name: Build LaTeX documents
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image (with cache)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: docker/latex/Dockerfile
+          load: true
+          tags: latex-ci:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Run build inside container
+        run: |
+          docker run --rm \
+            -v $PWD:/workspace \
+            -w /workspace \
+            latex-ci \
+            make all-projects
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: latex-pdfs
+          path: |
+            build/**/*.pdf
+            build/**/*.pdfpc
+
+      - name: Copy PDFs to output
+        run: |
+          rm -rf output
+          mkdir -p output
+          find build -name "*.pdf" -exec cp {} output/ \;
+          find build -name "*.pdfpc" -exec cp {} output/ \;
+
+      - name: Commit and push output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A output/
+          git commit -m "Update compiled thesis outputs [skip ci]" || echo "No output changes to commit"
+          git push

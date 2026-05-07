@@ -1,0 +1,43 @@
+\ProvidesPackage{layout}
+
+\newcommand{\bgnormal}{\setbeamertemplate{background}{}}
+\newcommand{\bgagenda}{\setbeamertemplate{background}{}}
+\newcommand{\bgsection}{\setbeamertemplate{background}{\color{primary}\vrule width\paperwidth height\paperheight}}
+\newcommand{\bgfocus}{\setbeamertemplate{background}{}}
+
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercolor{title}{fg=white,bg=primary}
+\setbeamercolor{frametitle}{fg=white,bg=primary}
+
+\setbeamertemplate{frametitle}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,left]{frametitle}
+    \hspace{0.5cm}\insertframetitle
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{title page}{
+  \bgnormal
+  \begin{centering}
+    \vspace{0.5cm}
+
+    {\usebeamerfont{title}\color{primary}\inserttitle\par}
+
+    \vspace{0.3cm}
+
+    {\usebeamerfont{author}\insertauthor\par}
+
+    \vspace{0.2cm}
+
+    {\usebeamerfont{institute}\insertinstitute\par}
+
+    \vspace{0.2cm}
+
+    {\usebeamerfont{date}\insertdate\par}
+
+    \vfill
+  \end{centering}
+}
+
+\endinput

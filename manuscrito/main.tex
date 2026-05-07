@@ -1,0 +1,66 @@
+\documentclass[11pt,a4paper,twoside]{main}
+% SI NO PENSAS IMPRIMIRLO EN FORMATO LIBRO PODES USAR
+%\documentclass[11pt,a4paper]{main}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[left=3cm,right=3cm,bottom=3.5cm,top=3.5cm]{geometry}
+
+\usepackage{csquotes}
+\usepackage[
+    backend=biber, 
+    style=numeric, 
+    sorting=none, 
+    maxcitenames=2, 
+    mincitenames=1 
+]{biblatex}
+\addbibresource{bib/tesis.bib}
+\input{../config/metadata}
+
+% Comando para Índice Comentado (no hace nada en la tesis principal)
+\newcommand{\comentario}[1]{}
+
+\begin{document}
+
+%%%% CARATULA
+
+\def\autor{\tesisAutor}
+\def\tituloTesis{\tesisTitulo}
+\def\runtitulo{\tesisTituloCorto}
+\def\runtitle{\tesisTituloCorto}
+\def\director{\tesisDirector}
+\def\codirector{\tesisCodirector}
+\def\lugar{\tesisLugar}
+\input{./assets/caratula}
+
+%%%% ABSTRACTS, AGRADECIMIENTOS Y DEDICATORIA
+\frontmatter
+\pagestyle{empty}
+\input{./assets/abs_esp.tex}
+
+\cleardoublepage
+\input{./assets/abs_en.tex} % OPCIONAL: comentar si no se quiere
+
+\cleardoublepage
+\input{./assets/agradecimientos.tex} % OPCIONAL: comentar si no se quiere
+
+\cleardoublepage
+\input{./assets/dedicatoria.tex}  % OPCIONAL: comentar si no se quiere
+
+\cleardoublepage
+\tableofcontents
+
+\mainmatter
+\pagestyle{headings}
+
+%%%% ACA VA EL CONTENIDO DE LA TESIS
+
+\input{chapters/01_introduccion}
+
+
+%%%% BIBLIOGRAFIA
+\backmatter
+\printbibliography
+
+\end{document}

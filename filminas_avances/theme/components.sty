@@ -1,0 +1,64 @@
+\ProvidesPackage{components}
+
+\setbeamercolor{item}{fg=primary}
+\setbeamercolor{subitem}{fg=accent3}
+
+\newcommand{\highlight}[1]{\textcolor{accent1}{#1}}
+
+\newcommand{\agendaFrame}[2]{
+  \bgagenda
+  \begin{frame}
+  \frametitle{#1}
+  #2
+  \end{frame}
+}
+
+\newcommand{\normalFrame}[3][]{
+  \bgnormal
+  \begin{frame}
+  \frametitle{#2}
+  #3
+  #1 % ← notas opcionales acá
+  \end{frame}
+}
+
+\newcommand{\sectionFrame}[1]{
+  \bgsection
+  \begin{frame}[plain]
+  \begin{centering}
+    \huge\color{white} #1
+  \end{centering}
+  \end{frame}
+  \bgnormal
+}
+
+\newcommand{\twoColumnFrame}[3]{
+  \bgnormal
+  \begin{frame}
+  \frametitle{#1}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      #2
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      #3
+    \end{column}
+  \end{columns}
+  \end{frame}
+}
+
+\newcommand{\focusFrame}[1]{
+  \bgfocus
+  \begin{frame}[plain]
+  \begin{centering}
+    \Large\textit{#1}
+  \end{centering}
+  \end{frame}
+  \bgnormal
+}
+
+
+\setbeamercolor{structure}{fg=primary}
+\setbeamercolor{alerted text}{fg=accent1}
+
+\endinput

@@ -1,0 +1,75 @@
+*.tar
+*.tar.*
+*.jar
+*.exe
+*.msi
+*.deb
+*.zip
+*.tgz
+*.log
+*.log.*
+*.sig
+
+pkg/
+src/
+
+
+# =========================
+# LaTeX build artifacts
+# =========================
+*.aux
+*.log
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# =========================
+# Build output (IMPORTANT)
+# =========================
+build/
+indice_comentado/contenido.tex
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Editor / IDE
+# =========================
+.vscode/
+.idea/
+.agents/
+.codex/
+*.swp
+*.swo
+
+# =========================
+# Temporary files
+# =========================
+*~
+*.tmp
+
+# =========================
+# Logs
+# =========================
+*.pdfsync
+
+# =========================
+# Optional: bibliography tools
+# =========================
+*.laux
+*.synctex(busy)
+main.pdf
+main.pdfpc
+.lw-security/

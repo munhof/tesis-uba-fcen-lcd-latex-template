@@ -1,0 +1,88 @@
+\documentclass[a4paper,11pt,titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{fullpage}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{csquotes}
+\usepackage[
+    backend=biber, 
+    style=numeric, 
+    sorting=none, 
+    maxcitenames=2, % Si hay 3 o más, pone et al.
+    mincitenames=1  % Al recortar, deja solo al primer autor
+]{biblatex}
+\addbibresource{./bib/reference.bib}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\input{../config/metadata}
+
+
+\title{Plan de tesis de \tesisCarrera{\Huge \\ \tesisTitulo} }
+\author{\tesisAutor\\{\small \tesisEmail\ - L.U. \tesisLU}}
+\date{Direccion: \tesisDirector \\{\small \tesisDirectorEmail}~\vspace{0.2cm}\\ Codireccion: \tesisCodirector \\{\small \tesisCodirectorEmail}}
+
+
+\begin{document}
+ \maketitle
+
+% \newpage
+ 
+\section*{Introduccion y antecedentes de la tematica}
+
+Describir aqui el area de investigacion, el problema general y los antecedentes mas relevantes. Reemplazar este texto por una presentacion breve del estado del arte y citar la bibliografia necesaria con \verb|\textcite{}| o \verb|\cite{}|.
+
+
+\section*{Alcance, actividades y metodologia}
+
+Describir el alcance concreto de la tesis, las preguntas que intenta responder y los limites del trabajo.
+
+\subsection*{Actividades propuestas}
+
+\begin{itemize}
+    \item \textbf{Revision bibliografica}: relevar antecedentes y definir el marco teorico.
+    \item \textbf{Preparacion de datos o materiales}: describir las fuentes, corpus, experimentos o insumos.
+    \item \textbf{Desarrollo metodologico}: implementar, adaptar o analizar el metodo principal.
+    \item \textbf{Evaluacion}: definir metricas, criterios de validacion o analisis de resultados.
+    \item \textbf{Escritura}: redactar, revisar y preparar la entrega final.
+\end{itemize}
+
+\subsection*{Metodologia}
+Describir las herramientas, datos, metodos y criterios de evaluacion que se usaran durante la tesis.
+
+\section*{Plazos y factibilidad de realización}
+El proyecto es factible para ser completado en el periodo previsto. El cronograma propuesto es:
+
+\begin{table}[h]
+\centering
+\scriptsize 
+\renewcommand{\arraystretch}{1.8}
+\setlength{\tabcolsep}{2pt}
+\begin{tabularx}{\textwidth}{|l|*{12}{>{\centering\arraybackslash}X|}}
+\hline
+\rowcolor{gray!20} 
+\textbf{Actividad / Semana} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} \\ \hline
+\textbf{Lunes (Inicio)} & 16/3 & 23/3 & 30/3 & 06/4 & 13/4 & 20/4 & 27/4 & 04/5 & 11/5 & 18/5 & 25/5 & 01/6 \\ \hline
+Elaboración del plan & \cellcolor{gray!50}X & & & & & & & & & & & \\
+\hline
+Revisión bibliográfica y del estado del arte & & \cellcolor{gray!50}X &  & & & & & & & & & \\
+\hline
+Procesamiento de datos & & & \cellcolor{gray!50}X & \cellcolor{gray!50}X & \cellcolor{gray!50}X & & & & & & & \\
+\hline
+Implementación modelos & & & & & \cellcolor{gray!50}X & \cellcolor{gray!50}X & \cellcolor{gray!50}X & & & & & \\
+\hline
+Visualización y evaluación de los modelos & & & & & & & & \cellcolor{gray!50}X & \cellcolor{gray!50}X & & & \\ \hline
+Entrenamiento y validación del modelo final & & & & & & & & & \cellcolor{gray!50}X & & & \\ \hline
+Escritura del Manuscrito & & & & & & & & & \cellcolor{gray!50}X & \cellcolor{gray!50}X & \cellcolor{gray!50}X & \cellcolor{gray!50}X \\ \hline
+\end{tabularx}
+\caption{Cronograma de actividades.}
+\end{table}
+
+Describir aqui los recursos disponibles, dependencias externas y riesgos principales.
+
+\newpage
+\nocite{*}
+
+\printbibliography
+
+\end{document}
